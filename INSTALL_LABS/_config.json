@@ -1,0 +1,21 @@
+{
+    "installer":[
+        {
+            "link":"https://download.microsoft.com/download/8/a/8/8a8073d2-2e00-472b-9a18-88361d105915/SSMS-Setup-ENU.exe",
+            "name":"SSMS-Setup-ENU.exe"
+        },
+        {
+            "link":"https://download.microsoft.com/download/8/8/0/880BCA75-79DD-466A-927D-1ABF1F5454B0/PBIDesktopSetup_x64.exe",
+            "name":"PBIDesktopSetup_x64.exe"
+        }     
+    ],
+    "localFolder":"D:\\INSTALL\\DESCARGAS",
+    "destino_temp":"C$\\temp\\softwareitba",
+    "arg_install":"/quiet ACCEPT_EULA=1 INSTALLDESKTOPSHORTCUT=1",
+    "arg_uninstall":"/uninstall /quiet",
+    "restart_lab":false,
+    "restart_server":false,
+    "arg_restart":"restart-computer -force",
+    "labs":["LABTNSARWBI42"],
+    "labs_custom":false
+ }
