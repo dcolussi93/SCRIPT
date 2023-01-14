@@ -16,3 +16,8 @@ Ejecutar comando completo
 ```
 PS C:\Users\xxxx\SCRIPT\METRICAS_PBI> .\_RUNALL.ps1
 ```
+# Resultado
+Metricas se guardan en la siguiente carpeta
+```
+DATAEXPORT
+```
