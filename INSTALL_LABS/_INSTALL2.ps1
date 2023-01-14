@@ -1,7 +1,7 @@
 ## DEFINICION DE RUTAS DE APLICACIONES....
 write-host "`n`nEjecutando Script en server $env:COMPUTERNAME"
 
-#ARCHIVO DE CONFIGURACION
+#ARCHIVO DE CONFIGURACION JSON
 $config=Get-Content -Path .\_config.json -Raw | ConvertFrom-Json
 
 #Ruta de Origen
