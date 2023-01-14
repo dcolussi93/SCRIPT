@@ -1,12 +1,14 @@
 $config = Get-Content -Path .\config.json -Raw | ConvertFrom-Json
 
 #Instalar el modulo si no está instalado.
-try{
+<#t
+ry{
     Get-InstalledModule -Name "MicrosoftPowerBIMgmt"
 }
 catch {
     Install-Module -Name MicrosoftPowerBIMgmt -force
 }
+#>
 
 #Forzar el logeo
 if($config.force_login) {
