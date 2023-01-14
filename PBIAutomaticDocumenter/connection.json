@@ -1,0 +1,9 @@
+{
+    "TenantID": "2ded5d7e-fbb1-4835-83cb-40787153c2a0",
+    "SubscriptionID": "74048889-c633-4953-ac02-be5e9a0ddf89",
+    "StorageAcc":"adlsbialabbi",
+    "StoragePath":"pbimetadata",
+    "StorageKey":"",
+    "SvcAcc": "3f672924-878a-4a80-bd3b-cd26b3f38961",
+    "SvcPass": ""
+}
