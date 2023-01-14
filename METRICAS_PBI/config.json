@@ -1,0 +1,6 @@
+{
+   "export":"./DATAEXPORT",
+   "prefijo":"md_",
+   "datasource":"./DATASOURCE",
+   "force_login":false
+}
