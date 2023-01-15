@@ -8,6 +8,7 @@ write-host "GENERACION REPORTES DE USO POWER BI SERVICES:"
 
 #Crear directorio
 New-Item -ItemType Directory -Force $config.export
+New-Item -ItemType Directory -Force $config.export_event
 
 #Buscar Datasources de log
 $scriptsList = @(
