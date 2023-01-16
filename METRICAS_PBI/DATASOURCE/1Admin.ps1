@@ -12,12 +12,12 @@ $file = $prefijo+"PowerBIWorkspaceEncryptionStatus.json"
 
 # Exportar Eventos
 $f_inicio = (Get-Date -Format "yyyy-MM-dd")+"T00:01:00"
-$f_fin= (Get-Date -Format "yyyy-MM-dd")+"T23:01:00"
+$f_fin= (Get-Date -Format "yyyy-MM-dd")+"T23:59:00"
 $fech = (Get-Date -Format "yyyyMMdd")
 <#
-$f_inicio = "2023-01-13T00:01:00"
-$f_fin= "2023-01-13T23:01:00"
-$fech = "20230113"
+$f_inicio = "2023-01-11T00:01:00"
+$f_fin= "2023-01-11T23:59:00"
+$fech = "20230111"
 #>
 $events = Get-PowerBIActivityEvent -StartDateTime $f_inicio -EndDateTime $f_fin
 $events = ConvertFrom-Json $events

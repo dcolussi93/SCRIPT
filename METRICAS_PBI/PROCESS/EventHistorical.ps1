@@ -3,21 +3,19 @@
 # Archivo de configuracion
 $config = Get-Content -Path .\config.json -Raw | ConvertFrom-Json
 
-# Acceder al historico
-$prefijo = $config.export+"/"+$config.prefijo
-$file = $prefijo+"PowerBIActivityEvent.json"
-$hist = Get-Content -Path $file -Raw | ConvertFrom-Json
+$eventosFiles = ( Get-ChildItem -Path .\DATAEXPORT\EVENTS\ ) | Select-Object -Property Name
 
-$file_acu = $config.export+"/fc_PowerBIEvents.json"
-$hist_acu = Get-Content -Path $file_acu -Raw | ConvertFrom-Json
+$result_ev = @()
+foreach($evFile in $eventosFiles){  
+    $file = ".\DATAEXPORT\EVENTS\"+$evFile.name
+    write-host $evFile
+    $result = @{
+        "data"= Get-Content -Path $file -Raw | ConvertFrom-Json ;
+        "file" = $evFile.name
+    }
+    $result_ev += $result
+}
 
-$return =@()
-$res = @{}
-$res.fecha = (Get-Date -Format "yyyy-MM-d")
-$res.data = @()
-$res.data += $hist
+( $result_ev | ConvertTo-Json -Depth 4 )>".\DATAEXPORT\fc_PowerBIEvents.json"
 
-$return += $res
-$hist_acu += $res
-#$hist_acu = ($hist_acu | Sort-Object -Unique)
-( $hist_acu | ConvertTo-Json -Depth 4 )>".\DATAEXPORT\fc_PowerBIEvents.json"
+
