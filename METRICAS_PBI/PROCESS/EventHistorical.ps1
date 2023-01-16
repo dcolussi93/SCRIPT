@@ -1,13 +1,11 @@
 #Seccion Microsoft MicrosoftPowerBIMgmt.Admin
 
 # Archivo de configuracion
-$config = Get-Content -Path .\config.json -Raw | ConvertFrom-Json
-
-$eventosFiles = ( Get-ChildItem -Path .\DATAEXPORT\EVENTS\ ) | Select-Object -Property Name
+$eventosFiles = ( Get-ChildItem -Path ".\DATAEXPORT\EVENTS\" ) | Select-Object -Property Name
 
 $result_ev = @()
 foreach($evFile in $eventosFiles){  
-    
+
     $file = ".\DATAEXPORT\EVENTS\"+$evFile.name
     write-host $evFile
     

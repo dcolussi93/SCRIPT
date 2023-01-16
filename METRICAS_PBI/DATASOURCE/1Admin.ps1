@@ -1,13 +1,9 @@
 #Seccion Microsoft MicrosoftPowerBIMgmt.Admin
 
-# Archivo de configuracion
-$config = Get-Content -Path .\config.json -Raw | ConvertFrom-Json
-$prefijo = $config.export+"/"+$config.prefijo
-
 write-host "(*) Admin:"
 
 $x = Get-PowerBIWorkspace -Scope Organization | Get-PowerBIWorkspaceEncryptionStatus
-$file = $prefijo+"PowerBIWorkspaceEncryptionStatus.json"
+$file = "./DATAEXPORT/md_PowerBIWorkspaceEncryptionStatus.json"
 ( $x | ConvertTo-Json -Depth 4 )>$file
 
 # Exportar Eventos
@@ -34,13 +30,13 @@ foreach($e in $events){
     }
 }
 # Guardar en archivo Json Eventos
-$file = $prefijo+"PowerBIActivityEvent.json"
-( $event_filter | ConvertTo-Json -Depth 4 )>$file
+$file = "./DATAEXPORT/md_PowerBIActivityEvent.json"
+( $event_filter | ConvertTo-Json -Depth 6 )>$file
 
 #Guardar Historico Diario Carpeta Ejecucion
-$file = $file = $config.export_event+"/"+$fech+"_PowerBIActivityEvent.json"
-( $event_filter | ConvertTo-Json -Depth 4 )>$file
+$file = "./DATAEXPORT/EVENTS/"+$fech+"_PowerBIActivityEvent.json"
+( $event_filter | ConvertTo-Json -Depth 6 )>$file
 
 # Eventos Ignorados
-$file = $prefijo+"PowerBIActivityEvent_exclude.json"
-( $event_filter | ConvertTo-Json -Depth 4 )>$file
+$file = "./DATAEXPORT/md_PowerBIActivityEvent_exclude.json"
+( $event_nofilter | ConvertTo-Json -Depth 6 )>$file

@@ -1,14 +1,11 @@
-$config = Get-Content -Path .\config.json -Raw | ConvertFrom-Json
-$datasource = $config.datasource
-
 #Logearse
 Invoke-Expression ".\_login.ps1"
 
 write-host "GENERACION REPORTES DE USO POWER BI SERVICES:"
 
 #Crear directorio
-New-Item -ItemType Directory -Force $config.export
-New-Item -ItemType Directory -Force $config.export_event
+New-Item -ItemType Directory -Force "./DATAEXPORT"
+New-Item -ItemType Directory -Force "./DATAEXPORT/EVENTS"
 
 #Buscar Datasources de log
 $scriptsList = @(
@@ -21,7 +18,17 @@ $scriptsList = @(
 )
 foreach( $script in $scriptsList) {
     write-host "(*) $script"
-    Invoke-Expression "$datasource/$script"
+    Invoke-Expression "./DATASOURCE/$script"
+}
+
+#Procesamiento INFO
+$scriptsList = @(
+    'EventHistorical.ps1'
+)
+write-host "(*) PROCESAMIENTO"
+foreach( $script in $scriptsList) {
+    write-host "(*) $script"
+    Invoke-Expression "./PROCESS/$script"
 }
 
 write-host "FIN SCRIPT"
