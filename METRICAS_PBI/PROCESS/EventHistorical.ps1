@@ -16,6 +16,6 @@ foreach($evFile in $eventosFiles){
     $result_ev += $result
 }
 
-( $result_ev | ConvertTo-Json -Depth 4 )>".\DATAEXPORT\fc_PowerBIEvents.json"
+( $result_ev | ConvertTo-Json -Depth 8 )>".\DATAEXPORT\fc_PowerBIEvents.json"
 
 
