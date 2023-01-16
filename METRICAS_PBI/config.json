@@ -1,8 +1,0 @@
-{
-   "export":"./DATAEXPORT",
-   "prefijo":"md_",
-   "datasource":"./DATASOURCE",
-   "dataprocess":"./DATAPROCESS",
-   "export_event":"./DATAEXPORT/EVENTS",
-   "force_login":false
-}
