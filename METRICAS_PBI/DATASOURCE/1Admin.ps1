@@ -2,9 +2,11 @@
 
 write-host "(*) Admin:"
 
+<#
 $x = Get-PowerBIWorkspace -Scope Organization | Get-PowerBIWorkspaceEncryptionStatus
 $file = "./DATAEXPORT/md_PowerBIWorkspaceEncryptionStatus.json"
 ( $x | ConvertTo-Json -Depth 4 )>$file
+#>
 
 # Exportar Eventos
 $f_inicio = (Get-Date -Format "yyyy-MM-dd")+"T00:01:00"
@@ -23,7 +25,7 @@ $event_filter =  @()
 $event_nofilter =  @()
 
 foreach($e in $events){
-    if( ($e.Operation -ne "ExportActivityEvents") -and ($e.Operation -notlike "Get*") ) {
+    if( ($e.Operation -ne "ExportActivityEvents") -and ($e.Operation -notlike "Get*") -and ($e.WorkSpaceName -notlike "Personal*") ) {
         $event_filter += $e
     }else{
         $event_nofilter+=$e
