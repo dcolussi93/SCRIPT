@@ -21,6 +21,7 @@ foreach( $script in $scriptsList) {
     Invoke-Expression "./DATASOURCE/$script"
 }
 
+
 #Procesamiento INFO
 $scriptsList = @(
     'EventHistorical.ps1'
